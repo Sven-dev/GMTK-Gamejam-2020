@@ -10,8 +10,13 @@ public class Pusher : MonoBehaviour
     [Space]
     [SerializeField] private Rigidbody Rigidbody;
 
+    public void Activate()
+    {
+        Moving = true;
+    }
+
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Moving)
         {

@@ -24,7 +24,13 @@ public class Ropemanager : MonoBehaviour
         lastjoint.transform.parent = Player.transform;
         lastjoint.transform.position = Player.transform.position;
 
-        RopeParts[0].Rigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+        RopeParts[0].Rigidbody.constraints =
+            RigidbodyConstraints.FreezePositionX |
+            RigidbodyConstraints.FreezePositionY |
+            RigidbodyConstraints.FreezePositionZ |
+            RigidbodyConstraints.FreezeRotationX |
+            RigidbodyConstraints.FreezeRotationY |
+            RigidbodyConstraints.FreezeRotationZ;
     }
 
     /// <summary>
@@ -32,10 +38,9 @@ public class Ropemanager : MonoBehaviour
     /// </summary>
     private void SpawnBall()
     {
-        Vector2 spawnposition = RopeParts[RopeParts.Count - 1].transform.position;
-        //spawnposition.x++;
+        Vector2 spawnposition = RopeParts[RopeParts.Count - 1].transform.localPosition;
 
-        RopeJoint jointclone = Instantiate(JointPrefab, spawnposition, Quaternion.identity, transform);
+        RopeJoint jointclone = Instantiate(JointPrefab, transform);
         RopeParts.Add(jointclone);
 
         RopeParts[RopeParts.Count - 2].Hingejoint.connectedBody = jointclone.Rigidbody;

@@ -6,7 +6,7 @@ public class Rotator : MonoBehaviour
 {
     [SerializeField] private float RotationSpeed;
 
-    private Vector3 RotationTarget = Vector3.up * 180;
+    private Vector3 RotationTarget = Vector3.up;
 
     // Start is called before the first frame update
     void Start()
@@ -26,20 +26,19 @@ public class Rotator : MonoBehaviour
             if (Input.GetKey(Inputs.Instance.Left))
             {
                 //Rotate to -45
-                RotationTarget = new Vector3(0, 315, 0);
-                print(RotationTarget);
+                RotationTarget = new Vector3(0, 315 - 33, 0);
             }
             //If the right key is also pressed
             else if (Input.GetKey(Inputs.Instance.Right))
             {
                 //Rotate to 45
-                RotationTarget = new Vector3(0, 45, 0);
+                RotationTarget = new Vector3(0, 45 - 33, 0);
             }
             //If neither key is pressed
             else
             {
                 //Rotate to 0
-                RotationTarget = Vector3.zero;
+                RotationTarget = new Vector3(0, -33, 0);
             }
         }
         else if (Input.GetKey(Inputs.Instance.Down))
@@ -48,31 +47,30 @@ public class Rotator : MonoBehaviour
             if (Input.GetKey(Inputs.Instance.Left))
             {
                 //Rotate to -135
-                RotationTarget = new Vector3(0, 225, 0);
+                RotationTarget = new Vector3(0, 225 - 33, 0);
             }
             //If the right key is also pressed
             else if (Input.GetKey(Inputs.Instance.Right))
             {
                 //Rotate to 135
-                RotationTarget = new Vector3(0, 135, 0);
+                RotationTarget = new Vector3(0, 135 - 33, 0);
             }
             //If neither key is pressed
             else
             {
                 //Rotate to 180
-                RotationTarget = new Vector3(0, 180, 0);
+                RotationTarget = new Vector3(0, 180 - 33, 0);
             }
         }
         else if (Input.GetKey(Inputs.Instance.Left))
         {
             //Rotate to -90
-            RotationTarget = new Vector3(0, 270, 0);
-            print(RotationTarget);
+            RotationTarget = new Vector3(0, 270 - 33, 0);
         }
         else if (Input.GetKey(Inputs.Instance.Right))
         {
             //Rotate to 90
-            RotationTarget = new Vector3(0, 90, 0);
+            RotationTarget = new Vector3(0, 90 - 33, 0);
         }
     }
 
